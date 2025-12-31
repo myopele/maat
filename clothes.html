@@ -1,0 +1,928 @@
+<!-- =========================================================
+SGI WARRIOR — Module: 42 Negative Confessions of Ma’at
+(Warrior Adaptation • Cleansing, Order, Readiness)
+File: warriors-maat-42.html
+Notes:
+- Put this file in the SAME repo/folder as your index.html (optional).
+- Fully static (GitHub Pages / Cloudflare Pages friendly).
+- Includes interactive checklists + daily drill + printable summary.
+========================================================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>SGI Warrior — 42 Negative Confessions of Ma’at (Warrior Adaptation)</title>
+  <meta name="description" content="SGI Warrior training module: 42 Negative Confessions of Ma’at reframed as a cleansing and readiness system for the warrior path." />
+
+  <style>
+    :root{
+      --bg:#0b0b0f;
+      --ink:#f2f3f7;
+      --muted:#b7bbcc;
+      --card:rgba(22,22,30,.92);
+      --soft:rgba(255,255,255,.06);
+      --border:rgba(255,255,255,.12);
+      --ring:rgba(187,102,255,.38);
+      --accent:#bb66ff;
+      --accent2:#ffd166;
+      --ok:#4ade80;
+      --warn:#f59e0b;
+      --bad:#fb7185;
+      --radius:20px;
+      --max:1140px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 800px at 15% -10%, rgba(187,102,255,.20), transparent 60%),
+        radial-gradient(1100px 700px at 90% 0%, rgba(255,209,102,.14), transparent 55%),
+        radial-gradient(900px 600px at 70% 115%, rgba(102,255,178,.08), transparent 60%),
+        var(--bg);
+      color:var(--ink);
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:26px 18px 70px;}
+    .topbar{
+      display:flex; gap:12px; align-items:center; justify-content:space-between;
+      padding:14px 16px; border:1px solid var(--border); border-radius:999px;
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: 0 10px 30px rgba(0,0,0,.28);
+      position:sticky; top:10px; z-index:10;
+      backdrop-filter: blur(10px);
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; min-width:240px;
+    }
+    .sig{
+      width:38px; height:38px; border-radius:12px; border:1px solid var(--border);
+      background:
+        radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,.25), transparent 55%),
+        radial-gradient(16px 16px at 70% 65%, rgba(187,102,255,.35), transparent 60%),
+        linear-gradient(180deg, rgba(187,102,255,.20), rgba(255,209,102,.10));
+      position:relative;
+      overflow:hidden;
+    }
+    .sig:after{
+      content:"";
+      position:absolute; inset:-40%;
+      background:conic-gradient(from 220deg,
+        rgba(187,102,255,.0),
+        rgba(187,102,255,.65),
+        rgba(255,209,102,.55),
+        rgba(187,102,255,.0));
+      animation:spin 5.5s linear infinite;
+      filter:blur(.5px);
+      opacity:.85;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    .brand h1{font-size:14px; margin:0; letter-spacing:.5px}
+    .brand .sub{font-size:12px; color:var(--muted)}
+    .nav{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:9px 12px; border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      text-decoration:none;
+      font-size:13px;
+      transition:transform .12s ease, border-color .12s ease;
+      user-select:none;
+    }
+    .pill:hover{transform:translateY(-1px); border-color:rgba(187,102,255,.55)}
+    .pill strong{color:var(--accent2)}
+    .pill .dot{
+      width:7px; height:7px; border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 0 0 4px rgba(187,102,255,.18);
+    }
+
+    .hero{
+      margin-top:18px;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      padding:22px 20px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.30);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(700px 220px at 10% 10%, rgba(187,102,255,.18), transparent 60%),
+        radial-gradient(600px 240px at 85% 20%, rgba(255,209,102,.12), transparent 65%);
+      pointer-events:none;
+    }
+    .hero-grid{
+      position:relative;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:16px;
+      align-items:start;
+    }
+    @media (max-width: 880px){
+      .hero-grid{grid-template-columns:1fr}
+      .brand{min-width:auto}
+    }
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:7px 10px; border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      font-size:12px; color:var(--muted);
+      width:max-content;
+    }
+    .kicker b{color:var(--ink)}
+    .title{
+      font-size:30px; line-height:1.12; margin:10px 0 10px;
+      letter-spacing:.2px;
+    }
+    .lead{color:var(--muted); margin:0 0 12px; max-width:64ch}
+    .badge-row{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;
+    }
+    .badge{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      border-radius:999px;
+      padding:8px 10px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .badge b{color:var(--accent2)}
+    .panel{
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:rgba(0,0,0,.18);
+      padding:14px;
+      position:relative;
+    }
+    .panel h3{margin:0 0 8px; font-size:14px}
+    .panel p{margin:0; color:var(--muted); font-size:13px}
+    .panel .callouts{
+      margin-top:12px; display:grid; gap:10px;
+    }
+    .call{
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:rgba(255,255,255,.04);
+      padding:10px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .call b{color:var(--ink)}
+    .call .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      margin-top:8px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .tag i{
+      width:8px; height:8px; border-radius:2px; display:inline-block;
+      background:var(--accent2);
+      box-shadow:0 0 0 4px rgba(255,209,102,.14);
+    }
+
+    .grid{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 960px){ .grid{grid-template-columns:1fr} }
+
+    .card{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow: 0 16px 40px rgba(0,0,0,.22);
+      padding:16px;
+    }
+    .card h2{
+      margin:0 0 8px;
+      font-size:16px;
+      letter-spacing:.2px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .card h2 .n{
+      width:28px; height:28px; border-radius:10px;
+      border:1px solid var(--border);
+      background:rgba(187,102,255,.12);
+      display:grid; place-items:center;
+      font-weight:800;
+      color:var(--accent2);
+      font-size:13px;
+    }
+    .meta{
+      margin:0 0 12px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .hr{
+      height:1px; background:var(--border); margin:14px 0;
+    }
+
+    .list{display:grid; gap:10px; margin:0}
+    .item{
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:rgba(255,255,255,.03);
+      padding:12px 12px;
+    }
+    .item-head{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+    }
+    .item h4{margin:0; font-size:14px}
+    .item p{margin:6px 0 0; color:var(--muted); font-size:13px}
+    .chiprow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .chip{
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      padding:6px 8px; border-radius:999px;
+    }
+    .chip b{color:var(--ink)}
+    .toggle{
+      display:flex; align-items:center; gap:10px;
+      user-select:none;
+      cursor:pointer;
+      font-size:13px;
+      color:var(--muted);
+    }
+    input[type="checkbox"]{width:18px; height:18px; accent-color: var(--accent);}
+    textarea, input[type="text"], input[type="email"]{
+      width:100%;
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.20);
+      color:var(--ink);
+      border-radius:14px;
+      padding:10px 12px;
+      outline:none;
+      font:inherit;
+    }
+    textarea{min-height:96px; resize:vertical}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+    @media (max-width: 720px){ .row{grid-template-columns:1fr} }
+
+    .btns{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;
+    }
+    button{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      color:var(--ink);
+      border-radius:14px;
+      padding:10px 12px;
+      cursor:pointer;
+      font-weight:700;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+    button:hover{transform:translateY(-1px); border-color:rgba(187,102,255,.55)}
+    button.primary{
+      background:linear-gradient(180deg, rgba(187,102,255,.30), rgba(187,102,255,.14));
+      border-color:rgba(187,102,255,.55);
+    }
+    button.warn{
+      background:linear-gradient(180deg, rgba(245,158,11,.25), rgba(245,158,11,.10));
+      border-color:rgba(245,158,11,.45);
+    }
+    button.ghost{background:transparent}
+
+    .progress{
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:rgba(0,0,0,.18);
+      padding:12px;
+      display:grid;
+      gap:10px;
+    }
+    .bar{
+      height:10px; border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      overflow:hidden;
+    }
+    .bar > div{
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg, rgba(187,102,255,.85), rgba(255,209,102,.80));
+      border-right:1px solid rgba(255,255,255,.20);
+      transition:width .25s ease;
+    }
+    .pstats{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:space-between;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .pstats b{color:var(--ink)}
+    .hint{font-size:12px; color:var(--muted); margin-top:8px}
+    .kbd{
+      font-size:12px; padding:2px 6px; border-radius:8px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+    }
+
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:rgba(255,255,255,.03);
+    }
+    th, td{
+      padding:10px 10px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      vertical-align:top;
+      font-size:13px;
+      color:var(--muted);
+    }
+    th{
+      text-align:left;
+      color:var(--ink);
+      background:rgba(255,255,255,.05);
+      font-size:12px;
+      letter-spacing:.3px;
+      text-transform:uppercase;
+    }
+    tr:last-child td{border-bottom:none}
+    .tiny{font-size:12px; color:var(--muted)}
+    .footer{
+      margin-top:18px;
+      text-align:center;
+      color:rgba(183,187,204,.65);
+      font-size:12px;
+      padding:18px 0 0;
+    }
+
+    /* Print */
+    @media print{
+      .topbar,.btns,.hint{display:none !important}
+      body{background:#fff; color:#111}
+      .card,.hero,.panel,.item,.progress,table{box-shadow:none}
+      .card,.hero,.panel,.item,.progress,table{border-color:#ddd}
+      a{color:#111; text-decoration:none}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- Sticky top bar -->
+    <div class="topbar">
+      <div class="brand">
+        <div class="sig" aria-hidden="true"></div>
+        <div>
+          <h1>SwamiG Institute — <span style="color:var(--accent2)">Warrior Track</span></h1>
+          <div class="sub">Module: 42 Negative Confessions of Ma’at • Cleansing → Order → Readiness</div>
+        </div>
+      </div>
+      <div class="nav">
+        <a class="pill" href="#mission"><span class="dot"></span> Mission</a>
+        <a class="pill" href="#sections"><span class="dot"></span> 6 Sections</a>
+        <a class="pill" href="#drill"><span class="dot"></span> Daily Drill</a>
+        <a class="pill" href="#submit"><span class="dot"></span> Submit</a>
+        <a class="pill" href="#print"><span class="dot"></span> Print</a>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero" id="mission">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker"><b>Warrior Adaptation</b> • Ma’at as procedure, not poetry</div>
+          <h2 class="title">The 42 Negative Confessions — A Warrior System of Cleansing, Order, and Readiness</h2>
+          <p class="lead">
+            This lesson reframes the 42 Negative Confessions of Ma’at as a complete operational system:
+            identify impurity, classify it, apply the correct method, complete the cycle, and return to readiness.
+            The warrior maintains Ma’at through discipline, not mood.
+          </p>
+
+          <div class="badge-row">
+            <div class="badge">Primary skill: <b>Self-maintenance</b></div>
+            <div class="badge">Warrior lens: <b>Readiness</b></div>
+            <div class="badge">Outcome: <b>Order restored</b></div>
+          </div>
+
+          <div class="hr"></div>
+
+          <div class="progress" aria-label="Completion tracker">
+            <div class="pstats">
+              <div><b id="doneCount">0</b> / <span id="totalCount">0</span> checks completed</div>
+              <div>Readiness Score: <b id="score">0%</b></div>
+            </div>
+            <div class="bar"><div id="barFill"></div></div>
+            <div class="hint">
+              Your progress saves locally in this browser.
+              <span class="kbd">Reset</span> clears it. <span class="kbd">Print</span> creates a clean record.
+            </div>
+          </div>
+        </div>
+
+        <aside class="panel">
+          <h3>Warrior Teaching: “Laundry Law”</h3>
+          <p>
+            Dirt + clothes = laundry. Laundry + correct process = clean clothes.
+            Clean clothes must be stored properly to maintain Ma’at.
+          </p>
+
+          <div class="callouts">
+            <div class="call">
+              <b>Two Fields of Purification</b>
+              <div class="tag"><i></i> 21 personal • 21 relational/potential union</div>
+            </div>
+            <div class="call">
+              <b>Core Warrior Statement</b>
+              <div class="tag"><i></i> “No shortcuts. Complete the cycle.”</div>
+            </div>
+            <div class="call">
+              <b>Operational Outcome</b>
+              <div class="tag"><i></i> “My environment reflects my discipline.”</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Main grid -->
+    <section class="grid" id="sections">
+
+      <!-- Left: 6-section framework -->
+      <div class="card">
+        <h2><span class="n">6</span> The Ma’at Process Framework (Warrior)</h2>
+        <p class="meta">
+          The 42 are treated as a full cleansing arc. Each section below includes a warrior objective,
+          a cleansing metaphor, and a field drill.
+        </p>
+
+        <div class="list">
+
+          <div class="item" data-group="s1">
+            <div class="item-head">
+              <div>
+                <h4>Section I (1–7) — Order & Routine</h4>
+                <p><b>Warrior Objective:</b> establish rhythm; Ma’at begins with scheduling.</p>
+              </div>
+              <label class="toggle"><input type="checkbox" class="ck" data-key="s1_done" /> Mark section complete</label>
+            </div>
+            <div class="chiprow">
+              <div class="chip"><b>Metaphor:</b> set “laundry day”</div>
+              <div class="chip"><b>Drill:</b> assign one neglected area a fixed cycle</div>
+              <div class="chip"><b>Standard:</b> no avoidance</div>
+            </div>
+          </div>
+
+          <div class="item" data-group="s2">
+            <div class="item-head">
+              <div>
+                <h4>Section II (8–14) — Separation & Classification</h4>
+                <p><b>Warrior Objective:</b> stop contamination; different conditions need different treatment.</p>
+              </div>
+              <label class="toggle"><input type="checkbox" class="ck" data-key="s2_done" /> Mark section complete</label>
+            </div>
+            <div class="chiprow">
+              <div class="chip"><b>Metaphor:</b> separate laundry (color/type/soil)</div>
+              <div class="chip"><b>Drill:</b> classify habits: clean / worn / soiled</div>
+              <div class="chip"><b>Standard:</b> discernment</div>
+            </div>
+          </div>
+
+          <div class="item" data-group="s3">
+            <div class="item-head">
+              <div>
+                <h4>Section III (15–21) — Tools & Methods</h4>
+                <p><b>Warrior Objective:</b> right method beats brute force.</p>
+              </div>
+              <label class="toggle"><input type="checkbox" class="ck" data-key="s3_done" /> Mark section complete</label>
+            </div>
+            <div class="chiprow">
+              <div class="chip"><b>Metaphor:</b> hot/cold water, detergent, bleach, softener</div>
+              <div class="chip"><b>Drill:</b> design the correct method for one issue</div>
+              <div class="chip"><b>Standard:</b> proper remedy</div>
+            </div>
+          </div>
+
+          <div class="item" data-group="s4">
+            <div class="item-head">
+              <div>
+                <h4>Section IV (22–28) — Cycles & Process</h4>
+                <p><b>Warrior Objective:</b> complete cycles; repetition is mastery, not failure.</p>
+              </div>
+              <label class="toggle"><input type="checkbox" class="ck" data-key="s4_done" /> Mark section complete</label>
+            </div>
+            <div class="chiprow">
+              <div class="chip"><b>Metaphor:</b> wash → rinse → agitate → rinse → spin</div>
+              <div class="chip"><b>Drill:</b> locate where your cycle breaks</div>
+              <div class="chip"><b>Standard:</b> completion</div>
+            </div>
+          </div>
+
+          <div class="item" data-group="s5">
+            <div class="item-head">
+              <div>
+                <h4>Section V (29–35) — Drying, Folding, Preparation</h4>
+                <p><b>Warrior Objective:</b> integrate results; wet clothes are not ready.</p>
+              </div>
+              <label class="toggle"><input type="checkbox" class="ck" data-key="s5_done" /> Mark section complete</label>
+            </div>
+            <div class="chiprow">
+              <div class="chip"><b>Metaphor:</b> dry + fold + arrange</div>
+              <div class="chip"><b>Drill:</b> define how you “store” a lesson</div>
+              <div class="chip"><b>Standard:</b> reintegration</div>
+            </div>
+          </div>
+
+          <div class="item" data-group="s6">
+            <div class="item-head">
+              <div>
+                <h4>Section VI (36–42) — Completion & Readiness</h4>
+                <p><b>Warrior Objective:</b> closure; clean must be put away to preserve Ma’at.</p>
+              </div>
+              <label class="toggle"><input type="checkbox" class="ck" data-key="s6_done" /> Mark section complete</label>
+            </div>
+            <div class="chiprow">
+              <div class="chip"><b>Metaphor:</b> return items to inventory</div>
+              <div class="chip"><b>Drill:</b> close one open loop this week</div>
+              <div class="chip"><b>Standard:</b> readiness</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="btns">
+          <button class="primary" id="btnSave">Save progress</button>
+          <button class="warn" id="btnReset">Reset</button>
+          <button class="ghost" id="btnCollapse">Toggle collapse</button>
+        </div>
+      </div>
+
+      <!-- Right: Warrior checklists + reflections -->
+      <div class="card">
+        <h2><span class="n">42</span> Warrior Application Checklist</h2>
+        <p class="meta">
+          These are not the verbatim confessions; this is your warrior translation of your notes:
+          a cleansing system that covers <b>personal</b> and <b>relational/potential union</b> purification.
+        </p>
+
+        <div class="hr"></div>
+
+        <h3 style="margin:0 0 8px; font-size:14px;">A) Personal Purification (21)</h3>
+        <div class="list" id="personalList"></div>
+
+        <div class="hr"></div>
+
+        <h3 style="margin:0 0 8px; font-size:14px;">B) Relational / Potential Union Purification (21)</h3>
+        <div class="list" id="relationalList"></div>
+
+        <div class="hr"></div>
+
+        <h3 style="margin:0 0 8px; font-size:14px;">Reflection Log (Warrior Record)</h3>
+        <div class="row">
+          <div>
+            <label class="tiny" for="name">Student / Warrior Name</label>
+            <input id="name" type="text" placeholder="Name / Title" />
+          </div>
+          <div>
+            <label class="tiny" for="date">Date</label>
+            <input id="date" type="text" placeholder="YYYY-MM-DD" />
+          </div>
+        </div>
+        <div style="height:10px"></div>
+        <label class="tiny" for="reflection">What did you cleanse today, and what method did you use?</label>
+        <textarea id="reflection" placeholder="Example: I separated the problem, used the right tool, completed the cycle, and stored the result."></textarea>
+
+        <div style="height:10px"></div>
+        <label class="tiny" for="next">What will you complete within 24 hours to restore readiness?</label>
+        <textarea id="next" placeholder="One concrete action. One cycle closed."></textarea>
+
+        <div class="btns" id="submit">
+          <button class="primary" id="btnExport">Export record (copy)</button>
+          <button class="ghost" id="btnMail">Create email draft</button>
+        </div>
+
+        <div class="hint">
+          “Create email draft” uses your device email app via <span class="kbd">mailto:</span>.
+          For real submissions, wire this to your preferred form endpoint later.
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Daily Drill Table -->
+    <section class="card" id="drill" style="margin-top:14px;">
+      <h2><span class="n">7</span> 7-Day Warrior Drill: Ma’at Readiness Cycles</h2>
+      <p class="meta">
+        Use this as a weekly practice. Each day: (1) identify what’s soiled, (2) separate/classify,
+        (3) apply correct method, (4) complete cycle, (5) store & restore readiness.
+      </p>
+
+      <table aria-label="7-day drill">
+        <thead>
+          <tr>
+            <th style="width:90px;">Day</th>
+            <th>Focus</th>
+            <th>Action</th>
+            <th style="width:240px;">Proof (Record)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Day 1</b></td>
+            <td>Order & Routine</td>
+            <td>Set a maintenance cycle (time + place + method)</td>
+            <td>Screenshot / note your schedule</td>
+          </tr>
+          <tr>
+            <td><b>Day 2</b></td>
+            <td>Separation</td>
+            <td>Classify one behavior or environment: clean / worn / soiled</td>
+            <td>Short inventory list</td>
+          </tr>
+          <tr>
+            <td><b>Day 3</b></td>
+            <td>Tools</td>
+            <td>Choose correct “tool”: boundaries, apology, study, rest, repair</td>
+            <td>Method statement</td>
+          </tr>
+          <tr>
+            <td><b>Day 4</b></td>
+            <td>Process</td>
+            <td>Run the cycle fully (wash/rinse/finish)</td>
+            <td>Before/after note</td>
+          </tr>
+          <tr>
+            <td><b>Day 5</b></td>
+            <td>Dry + Fold</td>
+            <td>Integrate lesson: define where it “lives” now</td>
+            <td>Rule or ritual</td>
+          </tr>
+          <tr>
+            <td><b>Day 6</b></td>
+            <td>Completion</td>
+            <td>Close an open loop you’ve postponed</td>
+            <td>Receipt / confirmation</td>
+          </tr>
+          <tr>
+            <td><b>Day 7</b></td>
+            <td>Readiness Audit</td>
+            <td>Inventory: what is ready, what needs cleansing next week</td>
+            <td>Readiness score</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="btns" id="print">
+        <button class="primary" onclick="window.print()">Print / Save PDF</button>
+        <button class="ghost" id="btnQuickFill">Quick-fill date</button>
+      </div>
+    </section>
+
+    <div class="footer">
+      Barely visible footer: <span style="opacity:.55">Governed by Tehuti (+) Irete</span>
+    </div>
+
+  </div>
+
+  <script>
+    // ---------- Build checklists (21 + 21) ----------
+    const personal = [
+      {t:"Maintain routine discipline", d:"I keep my cleansing schedule. I do not wait for crisis to correct me."},
+      {t:"Keep my body and space orderly", d:"My environment reflects my mind. I correct disorder quickly."},
+      {t:"Separate what contaminates me", d:"I do not mix clean with soiled. I cut off what spreads imbalance."},
+      {t:"Name the real problem", d:"I do not misclassify a root issue as a surface issue."},
+      {t:"Treat each impurity correctly", d:"I use the right tool, not emotional force."},
+      {t:"Use truth as detergent", d:"I do not cover dirt with fragrance. I cleanse with honesty."},
+      {t:"Refuse self-sabotage loops", d:"I do not repeat what I already know destroys my readiness."},
+      {t:"Complete cycles", d:"I do not start cleansing and stop mid-process."},
+      {t:"Rinse residue", d:"I do not leave bitterness, guilt, or excuses in my system."},
+      {t:"Choose the correct temperature", d:"Some issues need firmness (hot), some need gentleness (cold)."},
+      {t:"Repair what I damage", d:"If I tear it, I mend it. If I stain it, I cleanse it."},
+      {t:"Protect my time", d:"I do not allow chaos to steal my hours and attention."},
+      {t:"Guard speech", d:"I do not use words to contaminate my path or others."},
+      {t:"Practice restraint", d:"I do not overindulge what weakens my will."},
+      {t:"Train my body", d:"Strength supports morality. I keep myself capable."},
+      {t:"Train my mind", d:"Study is cleansing. I remove ignorance deliberately."},
+      {t:"Refuse corruption", d:"I do not trade my integrity for comfort."},
+      {t:"Honor my assignments", d:"I do what must be done without delay."},
+      {t:"Store the lesson", d:"I integrate: the new rule lives in my daily practice."},
+      {t:"Keep readiness inventory", d:"I track what is clean, what is worn, what needs cleansing next."},
+      {t:"Return to balance quickly", d:"After conflict or error, I restore Ma’at immediately."},
+    ];
+
+    const relational = [
+      {t:"Bring order to my union field", d:"I do not enter relationships with disorder as my normal."},
+      {t:"Separate healthy from harmful", d:"I do not confuse attraction with alignment."},
+      {t:"Classify conflict accurately", d:"I do not call abuse “passion” or neglect “space.”"},
+      {t:"Use correct methods in repair", d:"I choose communication, accountability, and boundaries over drama."},
+      {t:"Refuse contamination cycles", d:"I do not recycle the same betrayal, lie, or disrespect."},
+      {t:"Keep agreements clean", d:"I do not break trust or tolerate broken trust without correction."},
+      {t:"Honor reciprocity", d:"I do not exploit, manipulate, or feed on imbalance."},
+      {t:"Maintain emotional hygiene", d:"I do not dump unprocessed pain onto my partner."},
+      {t:"Practice clarity", d:"I speak plainly. I do not hide motives."},
+      {t:"Protect sacred intimacy", d:"I do not degrade, shame, or weaponize closeness."},
+      {t:"Choose aligned companionship", d:"I do not bind to what opposes my mission."},
+      {t:"Clean lineage behaviors", d:"I do not pass down dysfunction as tradition."},
+      {t:"Guard the home field", d:"I keep my household from becoming a battlefield."},
+      {t:"Do not mix jealousy with love", d:"Possession is not devotion."},
+      {t:"Do not reward disrespect", d:"What I tolerate trains the relationship."},
+      {t:"Complete repair cycles", d:"Apology + change + time. No partial repairs."},
+      {t:"Rinse resentment", d:"I process, forgive, or release. I do not stew in poison."},
+      {t:"Store new standards", d:"After lessons, we install new rules and practices."},
+      {t:"Inventory the relationship", d:"What’s clean? What’s worn? What needs attention now?"},
+      {t:"Prepare for readiness together", d:"We build stability: finances, health, duty, peace."},
+      {t:"Exit what cannot be cleansed", d:"When harm is ongoing, I choose Ma’at over attachment."},
+    ];
+
+    function renderList(el, items, prefix){
+      el.innerHTML = items.map((x,i)=>{
+        const n = i+1;
+        const key = `${prefix}_${n}`;
+        return `
+          <div class="item">
+            <div class="item-head">
+              <div>
+                <h4>${prefix === "P" ? "P" : "R"}${String(n).padStart(2,"0")} — ${x.t}</h4>
+                <p>${x.d}</p>
+              </div>
+              <label class="toggle" title="Mark complete">
+                <input type="checkbox" class="ck" data-key="${key}" />
+                Done
+              </label>
+            </div>
+            <div class="chiprow">
+              <div class="chip"><b>Warrior Move:</b> Identify → Separate → Apply Method → Complete</div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    const personalList = document.getElementById("personalList");
+    const relationalList = document.getElementById("relationalList");
+    renderList(personalList, personal, "P");
+    renderList(relationalList, relational, "R");
+
+    // ---------- Persistence ----------
+    const STORAGE_KEY = "sgi_warrior_maat42_v1";
+
+    function loadState(){
+      try{
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+      }catch(e){ return {}; }
+    }
+    function saveState(state){
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    const state = loadState();
+
+    // Load text fields
+    const nameEl = document.getElementById("name");
+    const dateEl = document.getElementById("date");
+    const reflEl = document.getElementById("reflection");
+    const nextEl = document.getElementById("next");
+
+    nameEl.value = state.name || "";
+    dateEl.value = state.date || "";
+    reflEl.value = state.reflection || "";
+    nextEl.value = state.next || "";
+
+    // Apply checkbox states
+    const allChecks = Array.from(document.querySelectorAll(".ck"));
+    allChecks.forEach(cb=>{
+      const k = cb.dataset.key;
+      cb.checked = !!state[k];
+      cb.addEventListener("change", ()=>{
+        state[k] = cb.checked;
+        saveState(state);
+        updateProgress();
+      });
+    });
+
+    // Save text fields on input
+    function hookText(el, key){
+      el.addEventListener("input", ()=>{
+        state[key] = el.value;
+        saveState(state);
+      });
+    }
+    hookText(nameEl, "name");
+    hookText(dateEl, "date");
+    hookText(reflEl, "reflection");
+    hookText(nextEl, "next");
+
+    // ---------- Progress ----------
+    const doneCountEl = document.getElementById("doneCount");
+    const totalCountEl = document.getElementById("totalCount");
+    const scoreEl = document.getElementById("score");
+    const barFill = document.getElementById("barFill");
+
+    function updateProgress(){
+      const checks = Array.from(document.querySelectorAll(".ck"));
+      const total = checks.length;
+      const done = checks.filter(x=>x.checked).length;
+      const pct = total ? Math.round((done/total)*100) : 0;
+
+      doneCountEl.textContent = String(done);
+      totalCountEl.textContent = String(total);
+      scoreEl.textContent = pct + "%";
+      barFill.style.width = pct + "%";
+    }
+    updateProgress();
+
+    // ---------- Buttons ----------
+    document.getElementById("btnSave").addEventListener("click", ()=>{
+      // State already saved; this is a reassurance button
+      state.name = nameEl.value;
+      state.date = dateEl.value;
+      state.reflection = reflEl.value;
+      state.next = nextEl.value;
+      saveState(state);
+      alert("Saved. Your progress is stored in this browser.");
+    });
+
+    document.getElementById("btnReset").addEventListener("click", ()=>{
+      if(!confirm("Reset ALL checks and reflections on this device?")) return;
+      localStorage.removeItem(STORAGE_KEY);
+      location.reload();
+    });
+
+    // collapse/expand all items (simple)
+    let collapsed = false;
+    document.getElementById("btnCollapse").addEventListener("click", ()=>{
+      collapsed = !collapsed;
+      document.querySelectorAll(".item p, .chiprow").forEach(el=>{
+        el.style.display = collapsed ? "none" : "";
+      });
+    });
+
+    // Quick fill date
+    document.getElementById("btnQuickFill").addEventListener("click", ()=>{
+      const d = new Date();
+      const iso = d.toISOString().slice(0,10);
+      dateEl.value = iso;
+      state.date = iso;
+      saveState(state);
+    });
+
+    // ---------- Export / Email draft ----------
+    function buildRecord(){
+      const doneKeys = allChecks.filter(x=>x.checked).map(x=>x.dataset.key);
+      const personalDone = doneKeys.filter(k=>k.startsWith("P_")).length;
+      const relationalDone = doneKeys.filter(k=>k.startsWith("R_")).length;
+
+      return [
+        "SGI WARRIOR — MA’AT 42 (Warrior Adaptation) — Record",
+        "-----------------------------------------------",
+        `Name: ${nameEl.value || "(blank)"}`,
+        `Date: ${dateEl.value || "(blank)"}`,
+        "",
+        `Completion: ${doneKeys.length}/${allChecks.length} (${scoreEl.textContent})`,
+        `Personal completed: ${personalDone}/21`,
+        `Relational completed: ${relationalDone}/21`,
+        "",
+        "Reflection: What did you cleanse today, and what method did you use?",
+        (reflEl.value || "(blank)"),
+        "",
+        "Next 24 hours: What will you complete to restore readiness?",
+        (nextEl.value || "(blank)"),
+        "",
+        "Signed: __________________________",
+      ].join("\n");
+    }
+
+    document.getElementById("btnExport").addEventListener("click", async ()=>{
+      const text = buildRecord();
+      try{
+        await navigator.clipboard.writeText(text);
+        alert("Copied to clipboard. Paste into your log, email, or document.");
+      }catch(e){
+        // fallback
+        prompt("Copy this record:", text);
+      }
+    });
+
+    document.getElementById("btnMail").addEventListener("click", ()=>{
+      const subject = encodeURIComponent("SGI Warrior — Ma’at 42 Record");
+      const body = encodeURIComponent(buildRecord());
+      // Change this to your review inbox if desired:
+      const to = ""; // e.g. "baba@swamiginstitute.com"
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
