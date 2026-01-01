@@ -280,6 +280,41 @@
   async
   src="//gc.zgo.at/count.js">
 </script>
+<!-- Discreet On-Page Visitor Counter -->
+<div id="maat-counter" aria-hidden="true">0</div>
+
+<style>
+  #maat-counter{
+    position: fixed;
+    bottom: 6px;
+    right: 10px;
+    font-size: 11px;
+    font-family: system-ui, sans-serif;
+    color: rgba(0,0,0,0.35);
+    opacity: 0.35;
+    user-select: none;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  @media (prefers-color-scheme: dark){
+    #maat-counter{
+      color: rgba(255,255,255,0.35);
+    }
+  }
+</style>
+
+<script>
+(function () {
+  const key = "maat_page_views";
+  let views = parseInt(localStorage.getItem(key) || "0", 10);
+  views++;
+  localStorage.setItem(key, views);
+  document.getElementById("maat-counter").textContent = views;
+})();
+</script>
+
+ 
 <body>
   <div class="wrap">
 
